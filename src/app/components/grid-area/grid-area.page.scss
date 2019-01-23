@@ -1,0 +1,25 @@
+.field {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+
+    .area {
+        background-color:#F8F8F8;
+        padding: 0;
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        .building-box {
+            position: absolute;
+        }
+    }
+
+    thumbnail {
+        z-index: 999;
+        position: fixed;
+        top: 65px;
+        right: 20px;
+    }
+}

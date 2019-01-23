@@ -1,0 +1,11 @@
+ <!--Generated template for the BuildingComponent component--> 
+<div  (click)="forward($event)" (touchstart)='touchstart($event)' (touchmove)='touchmove($event)' (touchend)='touchend($event)' class='building'
+  [ngStyle]="{'width':(areaInfo.colGap+areaInfo.colSize)*building.width-areaInfo.colGap+'px',
+              'height':(areaInfo.colGap+areaInfo.colSize)*building.height-areaInfo.colGap+'px',
+              'left':(areaInfo.colGap+areaInfo.colSize)*building.left+'px',
+              'top':(areaInfo.colGap+areaInfo.colSize)*building.top+'px'
+            }"
+     [class.bgdcolor]="building.bgc">
+  <house-building [building]="building" ></house-building>
+</div>
+ 

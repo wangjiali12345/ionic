@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="header-toolbar">
+    <div class="search-input">
+      <ion-icon class="header-icon" name="pin"></ion-icon>
+      <ion-input class="input" [placeholder]="inputPlaceHolder"></ion-input>
+      <ion-icon class="header-icon" name="albums"></ion-icon>
+    </div>
+  </div>
+  <div class="slider-toolbar">
+      <ion-button slot="icon-only" clear>
+          <ion-icon name="briefcase" mode="md"></ion-icon>
+      </ion-button>
+      <ion-button slot="icon-only" clear>
+          <ion-icon name="paper"></ion-icon>
+      </ion-button>
+      <ion-button slot="icon-only" clear>
+          <ion-icon name="contacts" mode="md"></ion-icon>
+      </ion-button>
+      <ion-button slot="icon-only" clear>
+          <ion-icon name="md-person"></ion-icon>
+      </ion-button>
+  </div>
+  <div class="footer-toolbar">
+    <ion-button slot="icon-only"  (click)="stackBack()" clear>
+        <ion-icon name="arrow-back" mode="md" ></ion-icon>
+    </ion-button>
+    <ion-button slot="icon-only" (click)="stackFoward()" clear>
+        <ion-icon name="arrow-forward" mode="md"></ion-icon>
+    </ion-button>
+    <ion-button slot="icon-only" (click)="showlist()" clear>
+        <ion-icon name="menu"></ion-icon>
+    </ion-button>
+    <ion-button slot="icon-only" clear>
+        <ion-icon name="home" mode="md"></ion-icon>
+    </ion-button>
+    <ion-button slot="icon-only" clear  (click)='toConnectedOffice(true)'>
+        <ion-icon name="checkbox-outline" mode="md"></ion-icon>
+    </ion-button>
+  </div>
+  <div class="set"  *ngIf="showSetList">
+    <div class="user-info">
+      <div class="user-img">
+        <img width="40" src="//upload.jianshu.io/users/upload_avatars/7236948/d49b558a-8124-47db-8758-5ab55426f7e0.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/120/h/120" />
+      </div>
+      <div class="user-name">{{globalData.username}}</div>
+      <a routerLink="#">查看我的信息</a>
+    </div>
+    <div class="set-list">
+      <div class="set-item">
+        <ion-icon name="map"></ion-icon>
+        <span>地图</span>
+      </div>
+      <div class="set-item">
+        <ion-icon name="gift"></ion-icon>
+        <span>商店</span>
+      </div>
+      <div class="set-item">
+        <ion-icon name="headset" mode="md"></ion-icon>
+        <span>客服</span>
+      </div>
+      <div class="set-item">
+        <ion-icon name="trophy"></ion-icon>
+        <span>荣誉</span>
+      </div>
+      <div class="set-item">
+        <ion-icon name="settings"></ion-icon>
+        <span>设置</span>
+      </div>
+      <ng-content></ng-content>
+    </div>
+    
+  </div>
+</div>

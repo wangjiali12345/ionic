@@ -1,0 +1,45 @@
+﻿
+<div *ngIf="building.type===1">
+    <img *ngIf="building.svgNum==1" src="../assets/images/buildings/building01.svg" />
+
+    <img *ngIf="building.svgNum==2" src="../../assets/images/buildings/building02.svg" />
+
+    <img *ngIf="building.svgNum==3" src="../../assets/images/buildings/building03.svg" />
+
+    <img *ngIf="building.svgNum==4" src="../../assets/images/buildings/building04.svg" />
+
+    <img *ngIf="building.svgNum==5" src="../../assets/images/buildings/building05.svg" />
+
+    <img *ngIf="building.svgNum==6" src="../../assets/images/buildings/building06.svg" />
+
+    <img *ngIf="building.svgNum==7" src="../../assets/images/buildings/building07.svg" />
+
+    <img *ngIf="building.svgNum==8" src="../../assets/images/buildings/building08.svg" />
+
+    <img *ngIf="building.svgNum==9" src="../../assets/images/buildings/building09.svg" />
+
+    <img *ngIf="building.svgNum==10" src="../../assets/images/buildings/building10.svg" />
+
+    <img *ngIf="building.svgNum==11" class="startup" src="../../assets/images/startup/compony.png" />
+    <img *ngIf="building.svgNum==12" class="startup" src="../../assets/images/startup/market.png" />
+    <img *ngIf="building.svgNum==13" class="startup" src="../../assets/images/startup/business.png" />
+    <img *ngIf="building.svgNum==14" class="startup" src="../../assets/images/startup/persman.png" />
+    <img *ngIf="building.svgNum==15" class="startup" src="../../assets/images/startup/admin.png" />
+    <img *ngIf="building.svgNum==16" class="startup" src="../../assets/images/startup/managem.png" />
+    <img *ngIf="building.svgNum==17" class="startup" src="../../assets/images/startup/decision.png" />
+
+    <div class="name" [class.change]="building.svgNum>10">{{building.name}}</div>
+</div>
+<div *ngIf="building.type===2">
+
+    <img *ngIf="building.svgNum==1" src="../../assets/images/roomtools/clothing.svg" />
+
+    <img *ngIf="building.svgNum==2" src="../../assets/images/roomtools/filecabinet.svg" />
+
+    <img *ngIf="building.svgNum==3" src="../../assets/images/roomtools/desktop.svg" (click)="foward()"/>
+    <img *ngIf="building.svgNum==4" src="../../assets/images/roomtools/calendar.svg" />
+    <img *ngIf="building.svgNum==5" src="../../assets/images/roomtools/note.svg" />
+    <img *ngIf="building.svgNum==6" src="../../assets/images/roomtools/email.svg" />
+    <img *ngIf="building.svgNum==7" src="../../assets/images/roomtools/clothtree.svg" />
+    <img *ngIf="building.svgNum==8" src="../../assets/images/roomtools/connected-office.jpg" />
+</div>

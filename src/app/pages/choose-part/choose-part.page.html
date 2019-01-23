@@ -1,0 +1,15 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start" (click)="goBack()">
+            <ion-button icon-only style="color: #000;">
+                <ion-icon name="md-close"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>选择部门</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-item (click)="rootpart()" *ngIf="item.keyword=='newpart'">公司</ion-item>
+    <treeview [keyword]="item.keyword" [partArray]="partArray" #child></treeview>
+</ion-content>

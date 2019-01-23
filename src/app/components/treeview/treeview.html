@@ -1,0 +1,12 @@
+﻿<div class="group-item" *ngFor="let item of partArray" >
+    <div class='content'>
+        <div class='space' *ngFor="let boxnum of getboxnum(item)"></div>
+        <ion-icon name="return-right" *ngIf="item.parentid!=null"></ion-icon>
+        <div class='partname' [class.createjob]="keyword=='createjob'" [class.newpart]="keyword=='newpart'" [class.hasjob]="(keyword=='postappoint'||keyword=='job')&&item.num!=0" [class.isonlychild]="keyword=='deletepart'&&item.nodes==undefined&&item.num==0">{{item.partname}}</div>
+        <div class="num" [class.createjob]="keyword=='createjob'" [class.newpart]="keyword=='newpart'" [class.isonlychild]="keyword=='deletepart'&&item.nodes==undefined&&item.num==0">({{item.num}})</div>
+        <div class="manage" [class.createjob]="keyword=='createjob'" [class.newpart]="keyword=='newpart'" [class.isonlychild]="keyword=='deletepart'&&item.nodes==undefined&&item.num==0">主管:</div>
+        <div class="name" [class.createjob]="keyword=='createjob'" [class.newpart]="keyword=='newpart'" [class.isonlychild]="keyword=='deletepart'&&item.nodes==undefined&&item.num==0">{{item.manager}}</div>
+    </div>
+    <treeview [keyword]="keyword" [partArray]='item.nodes' *ngIf="item.nodes&&item.nodes.length>0"></treeview>
+    <div class="gray" *ngIf="item.parentid==null"></div>
+</div>

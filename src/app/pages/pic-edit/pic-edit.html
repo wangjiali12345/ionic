@@ -1,0 +1,109 @@
+<ion-header>
+    <div class="picheader">
+        <span>底图编辑</span>
+    </div>
+</ion-header>
+<ion-content  >
+    <div class="area" (click)="select($event)" (touchstart)='touchStart($event)' (touchmove)='touchMove($event)' (touchend)='touchEnd($event)'>
+        <canvas id="drawline"></canvas>
+        <canvas id="selectcanvas"></canvas>
+    </div>
+</ion-content>
+
+<ion-footer>
+    <div class="footeritem" [ngSwitch]="item">
+        <ion-list  *ngSwitchCase="'grid'">
+            <ion-row>
+                <ion-col>
+                    <ion-icon name="undo" mode="md"></ion-icon>
+                    <ion-note> 撤销</ion-note>
+                </ion-col>
+                <ion-col>
+                    <ion-icon name="redo" mode="md"></ion-icon>
+                    <ion-note>重做</ion-note>
+                </ion-col>
+                <ion-col [class.gray]="type=='single'" (click)="switchtype('single')">
+                    <ion-icon name="key"></ion-icon>
+                    <ion-note>单选</ion-note>
+                </ion-col>
+                <ion-col [class.gray]="type=='multiple'" (click)="switchtype('multiple')">
+                    <ion-icon name="jet"></ion-icon>
+                    <ion-note>多选</ion-note>
+                </ion-col>
+                <ion-col [class.gray]="type=='line'" (click)="switchtype('line')">
+                    <ion-icon name="reorder"></ion-icon>
+                    <ion-note>线框</ion-note>
+                </ion-col>
+                <ion-col *ngIf="showmerge"  [class.gray]="type=='merge'" (click)="switchtype('merge')">
+                    <ion-icon name="jet"></ion-icon>
+                    <ion-note>合并</ion-note>
+                </ion-col>
+                <ion-col *ngIf="showsplit" (click)="switchtype('split')">
+                    <ion-icon name="reorder"></ion-icon>
+                    <ion-note>拆分</ion-note>
+                </ion-col>
+            </ion-row>
+        </ion-list>
+        <ion-list *ngSwitchCase="'brush'">
+            <ion-row>
+                <ion-col>
+                    <ion-icon name="undo" mode="md"></ion-icon>
+                    <ion-note> 撤销</ion-note>
+                </ion-col>
+                <ion-col>
+                    <ion-icon name="redo" mode="md"></ion-icon>
+                    <ion-note>重做</ion-note>
+                </ion-col>
+                <ion-col [class.gray]="type=='single'">
+                    <ion-icon name="key"></ion-icon>
+                    <ion-note>单选</ion-note>
+                </ion-col>
+            </ion-row>
+        </ion-list>
+        <ion-list *ngSwitchCase="'square-outline'">
+            square-outline
+        </ion-list>
+    </div>
+    <ion-segment [(ngModel)]="item">
+        <ion-segment-button value="grid">
+            <ion-icon name="grid"></ion-icon>
+            <ion-note>表格</ion-note>
+        </ion-segment-button>
+        <ion-segment-button value="brush">
+            <ion-icon name="brush"></ion-icon>
+            <ion-note>笔刷</ion-note>
+        </ion-segment-button>
+        <ion-segment-button value="square-outline">
+            <ion-icon name="square-outline"></ion-icon>
+            <ion-note>形状</ion-note>
+        </ion-segment-button>
+        <ion-segment-button>
+            <ion-icon name="settings"></ion-icon>
+            <ion-note>色彩</ion-note>
+        </ion-segment-button>
+        <ion-segment-button>
+            <ion-icon name="image" mode="ios"></ion-icon>
+            <ion-note>插图</ion-note>
+        </ion-segment-button>
+        <ion-segment-button>
+            <ion-icon name="image"></ion-icon>
+            <ion-note>色板</ion-note>
+        </ion-segment-button>
+    </ion-segment>
+    <ion-col class="cutsize" *ngIf="hascut">
+        <ion-row>
+            <ion-note>行</ion-note>
+            <div class="square" (click)="changesize('row','reduce')"><ion-icon name="remove"></ion-icon></div>
+            <div class="square">{{rownum}}</div>
+            <div class="square" (click)="changesize('row','add')"><ion-icon name="add"></ion-icon></div>
+            <ion-icon name="close-circle" (click)="close()"></ion-icon>
+        </ion-row>
+        <ion-row>
+            <ion-note>列</ion-note>
+            <div class="square" (click)="changesize('col','reduce')"><ion-icon name="remove"></ion-icon></div>
+            <div class="square">{{colnum}}</div>
+            <div class="square" (click)="changesize('col','add')"><ion-icon name="add"></ion-icon></div>
+            <ion-icon name="checkmark-circle" (click)="confirm()"></ion-icon>
+        </ion-row>
+    </ion-col>
+</ion-footer>

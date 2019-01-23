@@ -1,0 +1,59 @@
+.group-item {
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0);
+
+    .content {
+        display: flex;
+        background-color: white;
+        height: 40px;
+        margin-left: 20px;
+        border-bottom: 1px solid #E4E4E4;
+
+        div {
+            height: 23px;
+            margin-top: 10px;
+        }
+
+        .space {
+            width: 20px;
+        }
+
+        ion-icon {
+            margin-top: 12px;
+            width: 30px;
+        }
+
+        .partname {
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .partname, .num, .manage, .name {
+            color: rgba(102,102,102,0.4);
+            font-size: 15px;
+        }
+
+        .createjob,.newpart, .hasjob, .isonlychild {
+            color: #666666;
+        }
+
+
+
+        .num {
+            margin-left: 5px;
+        }
+
+        .manage {
+            margin-left: 20px;
+        }
+
+        .name {
+            margin-left: 10px;
+        }
+    }
+
+    .gray {
+        height: 10px;
+        background-color: #E4E4E4;
+    }
+}

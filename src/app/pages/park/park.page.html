@@ -1,0 +1,25 @@
+<grid-area [rowNum]='20' [colNum]='20' (click)="showlist()"  (emitbulidingListstack)="changestack($event)"  [buildingList]='buildingList' [pagename]="pagename" [canmove]="canmove" [usebackground]="usebackground" [usethumbnail]="usethumbnail"></grid-area>
+
+<fixed-toolbar class="fixed-toolbar" (emitbuildingListstack)="changestack($event)" [inputPlaceHolder]="inputPlaceHolder" (emitConnected)='toConnectedOffice($event)'>
+    <div class="set-item">
+        <ion-icon name="build"></ion-icon>
+        <span>管理布局</span>
+    </div>
+    <div class="set-item">
+        <ion-icon name="open"></ion-icon>
+        <span>分享</span>
+    </div>
+    <div class="set-item">
+        <ion-icon name="move" (click)="showgrid()"></ion-icon>
+        <span *ngIf="!usebackground">显示网格</span>
+        <span *ngIf="usebackground">隐藏网格</span>
+    </div>
+    <div class="set-item">
+        <ion-icon name="locate"></ion-icon>
+        <span *ngIf="!usethumbnail">显示缩略</span>
+        <span *ngIf="usethumbnail">隐藏缩略</span>
+    </div>
+    <div class="set-return" (click)="showlist()">
+        <ion-icon name="arrow-down"></ion-icon>
+    </div>
+</fixed-toolbar>

@@ -1,0 +1,9 @@
+<!-- Generated template for the GridAreaComponent component -->
+<div class="field">
+  <div class="area" (click)="disableshowList()" (touchstart)='touchStart($event)' (touchmove)='touchMove($event)' (touchend)='touchEnd($event)'>
+    <canvas id="area" style="align-content: center" ></canvas>
+    <div class="building-box" [ngStyle]="{'left':wallSize+colGap+'px','top':wallSize+colGap+'px'}">
+        <building *ngFor='let b of buildingList' (emitbuildingList)="changestack($event)" [areaInfo]='areaInfo' [building]='b' [pagename]="pagename" [canmove]='canmove'></building>
+    </div>
+  </div>
+</div>
